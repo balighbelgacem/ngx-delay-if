@@ -1,24 +1,50 @@
 # NgxDelayIf
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+If you need to delay emitting values based on their content you are right here. Use this library to implement conditional delaying emitting values.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project ngx-delay-if` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-delay-if`.
-> Note: Don't forget to add `--project ngx-delay-if` or else it will be added to the default project in your `angular.json` file. 
+```bash
+npm install ngx-delay-if
+# Or if you use yarn
+yarn add ngx-delay-if
+```
 
-## Build
 
-Run `ng build ngx-delay-if` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+### Sample 1
+```ts
+// Delay emitting even values for 10 seconds
+obs$.pipe(delayIf(
+	value => value % 2 === 0, 
+	value => value * 1000)).subscribe(
+	value => {
+		console.log(value);
+	});
+```
+```
+Output:
+1  3  5  7  9  0  2  4  6  8  10  
+```
 
-After building your library with `ng build ngx-delay-if`, go to the dist folder `cd dist/ngx-delay-if` and run `npm publish`.
+### Sample 2
+```ts
+const obs$ = interval(10);
 
-## Running unit tests
+// Delay emitting odd values for (1 * value) seconds
+obs$.pipe(delayIf(
+	value => value % 2 === 1, 
+	value => value * 1000)).subscribe(
+	value => {
+		console.log(value);
+	});
+```
+```
+Output:
+0  2  1  4  6  3  8  10  5  7  9   
+```
 
-Run `ng test ngx-delay-if` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Live demo
+Try it on [stackblitz](https://stackblitz.com/edit/ngx-delay-if-demo)
