@@ -1,6 +1,6 @@
 {
   "name": "ngx-delay-if",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
@@ -10,5 +10,5 @@
     "url": "https://github.com/balighbelgacem/ngx-delay-if"
   },
   "license": "MIT",
-  "keywords": ["angular", "angular2", "rxjs", "delay", "conditional", "delayIf" ]
+  "keywords": ["angular", "angular2", "rxjs", "delay", "conditional", "delayIf", "observable" ]
 }

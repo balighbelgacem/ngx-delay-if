@@ -13,6 +13,12 @@ yarn add ngx-delay-if
 
 ## Usage
 
+import `delayIf` follows:
+```ts
+import { delayIf } from 'ngx-delay-if';
+```
+and then use it as as the samples below.
+
 ### Sample 1
 ```ts
 // Delay emitting even values for 10 seconds
